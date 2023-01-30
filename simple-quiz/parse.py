@@ -1,4 +1,5 @@
 from enum import Enum
+import re
 
 
 class ParserState(Enum):
@@ -59,8 +60,8 @@ def _parse_inner(lines: list[str]) -> None:
 
             state = ParserState.IN_QUESTION
 
-        elif state == ParserState.IN_QUESTION:
-            current_answer.append(line)
+        elif state == ParserState.IN_QUESTION and line.startswith('-'):
+            current_answer.append(get_text_from_list(line))
 
 
 def is_heading(line: str) -> bool:
@@ -73,3 +74,7 @@ def get_heading(line: str) -> str:
 
 def is_empty(line: str) -> bool:
     return line.strip() == ""
+
+
+def get_text_from_list(line: str) -> str:
+    return re.sub(r'^-(\s)*', '', line)
