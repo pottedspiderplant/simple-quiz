@@ -1,16 +1,21 @@
 from argparse import ArgumentParser
 
-from parse import parse
+import parse_marko
+import parse
 
 
 def main():
     argparser = ArgumentParser()
 
     argparser.add_argument('file_path')
+    argparser.add_argument('--oldparser', action='store_true')
 
     args = argparser.parse_args()
 
-    parse(args.file_path)
+    if args.oldparser:
+        parse.parse(args.file_path)
+    else:
+        parse_marko.parse(args.file_path)
 
 
 main()

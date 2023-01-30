@@ -1,3 +1,8 @@
 # These pinned and hashed requirements are based on:
-# TODO
-# as of 2022-10-19
+# marko
+# as of 2022-09-22
+
+# Released on 2022-09-22
+marko==1.2.2 \
+    --hash=sha256:e2d4a299bfc5ef601ba0f0827c1927cee26e451581853c5333f2db098e609c0d \
+    --hash=sha256:d467c3ad450be693505cb8eb7054718efe3f14fccc2310588f9bc9c1d992ef94
